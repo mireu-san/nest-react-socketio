@@ -65,7 +65,7 @@ const ChatStyle = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
   font-family: sans-serif;
   border-radius: 10px;
 `;
@@ -85,7 +85,11 @@ const ChatBody = styled.div`
   flex: 1;
   overflow-y: auto;
   padding: 25px 20px;
+  padding-right: 10px;
   border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  margin-left: 25px;
 `;
 
 const ChatInputArea = styled.form`
@@ -127,4 +131,15 @@ const ChatMessage = styled.div`
   margin-bottom: 10px;
   padding: 20px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(#43cdf6,#0087fe)
 `;
+
+
+// const ChatMessage = styled.div`
+//   background-color: #fff;
+//   border-radius: 10px;
+//   margin-bottom: 10px;
+//   padding: 20px;
+//   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+// `;

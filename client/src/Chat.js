@@ -4,13 +4,13 @@ import io from 'socket.io-client';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const socket = io('http://localhost:3000'); // need to replace to socket server url (in actual situation)
+  const socket = io('http://localhost:3001');
 
   useEffect(() => {
     socket.on('message', (message) => {
-      setMessages([...messages, message]);
+      setMessages((messages) => [...messages, message]);
     });
-  }, [messages]);
+  });
 
   const sendMessage = () => {
     socket.emit('message', input);

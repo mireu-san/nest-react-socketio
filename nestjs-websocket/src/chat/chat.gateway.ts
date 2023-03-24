@@ -18,48 +18,11 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     console.log('Received message:', message);
     this.server.emit('message', message);
   }
+//   @SubscribeMessage('message')
+//   handleMessage(client: Socket, message: string) {
+//     console.log('Received message:', message);
+//     client.emit('message', message);
+// }
+
 }
 
-
-// import { MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
-
-// @WebSocketGateway()
-// export class ChatGateway {
-//   @WebSocketServer()
-//   server;
-
-//   @SubscribeMessage('message')
-//   handleMessage(@MessageBody() message: string): void {
-//     this.server.emit('message', message);
-//   }
-// }
-
-// import { 
-//     WebSocketGateway,
-//     WebSocketServer,
-//     SubscribeMessage,
-//     OnGatewayConnection,
-//     OnGatewayDisconnect,
-// } from '@nestjs/websockets';
-
-// @WebSocketGateway()
-// // to track the clients connection and disconnection
-// export class ChatGateWay implements OnGatewayConnection, OnGatewayDisconnect {
-//     @WebSocketServer() server;
-//     users: number = 0;
-
-//     async handleConnection() {
-//         this.users++;
-//         this.server.emit('users', this.users);
-//     }
-
-//     async handleDisconnect() {
-//         this.users--;
-//         this.server.emit('users', this.users);
-//     }
-
-//     @SubscribeMessage('chat')
-//     async onChat(client, message) {
-//         client.broadcast.emit('chat', message);
-//     }
-// }

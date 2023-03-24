@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import styled from 'styled-components';
-import { useRef } from 'react';
+import Skeleton from './Skeleton';
+// import { useRef } from 'react';
 // import SidebarWhole from './Sidebar';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -10,9 +11,10 @@ const Chat = () => {
     pingTimeout: 60000,
   });
 
+  // Skeleton
   // https://stackoverflow.com/questions/69008820/websocket-connection-error-insufficient-resources
 
-  const chatBodyRef = useRef(null);
+  // const chatBodyRef = useRef(null);
 
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const Chat = () => {
   return (
     // <SidebarWhole>
     <ChatWrapper>
-    <Sidebar>  
+    <Sidebar>
       <SidebarHeader>Telegram</SidebarHeader>
       <SidebarItem active>Chats</SidebarItem>
       <SidebarItem>Contacts</SidebarItem>
@@ -173,7 +175,7 @@ const ChatMessage = styled.div`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   background: linear-gradient(#43cdf6,#0087fe)

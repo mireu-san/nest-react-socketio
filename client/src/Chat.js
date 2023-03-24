@@ -26,10 +26,6 @@ const Chat = () => {
     setMessages((messages) => [...messages, message]);
   };
 
-  // const sendMessage = () => {
-  //   socket.emit('message', input);
-  //   setInput('');
-  // };
   const sendMessage = (event) => {
     event.preventDefault();
     socket.emit('message', input);
@@ -37,37 +33,79 @@ const Chat = () => {
   };
 
   return (
-    <ChatStyle>
-      <ChatHeader>
-        <div>Telegram Chat</div>
-        <div>Online</div>
-      </ChatHeader>
-      <ChatBody>
-        {messages.map((message, index) => (
-          <ChatMessage key={index}>{message}</ChatMessage>
-        ))}
-      </ChatBody>
-      <ChatInputArea onSubmit={sendMessage}>
-        <ChatInput
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type a message..."
-        />
-        <ChatButton>Send</ChatButton>
-      </ChatInputArea>
-    </ChatStyle>
+    <ChatWrapper>
+      <Sidebar>  
+        <SidebarHeader>Telegram</SidebarHeader>
+        <SidebarItem active>Chats</SidebarItem>
+        <SidebarItem>Contacts</SidebarItem>
+        <SidebarItem>Settings</SidebarItem>
+      </Sidebar>
+      <ChatContainer>
+        <ChatHeader>
+          <div>Chat</div>
+          <div>Online</div>
+        </ChatHeader>
+        <ChatBody>
+          {messages.map((message, index) => (
+            <ChatMessage key={index}>
+              {message}
+            </ChatMessage>
+          ))}
+        </ChatBody>
+        <ChatInputArea onSubmit={sendMessage}>
+          <ChatInput
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type a message..."
+          />
+          <ChatButton>Send</ChatButton>
+        </ChatInputArea>
+      </ChatContainer>
+    </ChatWrapper>
   );
 };
 
 export default Chat;
 
-const ChatStyle = styled.div`
+const ChatWrapper = styled.div`
+  display: flex;
   height: 100%;
+  font-family: sans-serif;
+`;
+
+const Sidebar = styled.div`
+  width: 20%;
+  background-color: #0088cc;
+  color: white;
   display: flex;
   flex-direction: column;
-  /* background-color: #f5f5f5; */
-  font-family: sans-serif;
-  border-radius: 10px;
+`;
+
+const SidebarHeader = styled.div`
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const SidebarItem = styled.div`
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  ${(props) => props.active && `
+    background-color: #0077b3;
+    font-weight: bold;
+  `}
+
+  &:hover {
+    background-color: #0077b3;
+  }
+`;
+
+const ChatContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 const ChatHeader = styled.div`
@@ -78,7 +116,7 @@ const ChatHeader = styled.div`
   background-color: #0088cc;
   color: white;
   font-size: 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 `;
 
 const ChatBody = styled.div`
@@ -89,7 +127,6 @@ const ChatBody = styled.div`
   border-radius: 20px;
   color: white;
   font-weight: bold;
-  margin-left: 25px;
 `;
 
 const ChatInputArea = styled.form`
@@ -130,11 +167,11 @@ const ChatMessage = styled.div`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
+  margin-left: 10%;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   background: linear-gradient(#43cdf6,#0087fe)
 `;
-
 
 // const ChatMessage = styled.div`
 //   background-color: #fff;

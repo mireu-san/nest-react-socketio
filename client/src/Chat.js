@@ -67,6 +67,7 @@ const ChatStyle = styled.div`
   flex-direction: column;
   background-color: #f5f5f5;
   font-family: sans-serif;
+  border-radius: 10px;
 `;
 
 const ChatHeader = styled.div`
@@ -83,7 +84,7 @@ const ChatHeader = styled.div`
 const ChatBody = styled.div`
   flex: 1;
   overflow-y: auto;
-  padding: 15px 20px;
+  padding: 25px 20px;
   border-radius: 20px;
 `;
 
@@ -122,8 +123,8 @@ const ChatButton = styled.button`
 
 const ChatMessage = styled.div`
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 `;

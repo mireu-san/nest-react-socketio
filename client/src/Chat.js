@@ -6,7 +6,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const socket = io('http://localhost:3001', {
-    pingTimeout: 60000, 
+    pingTimeout: 60000,
   });
 
   // https://stackoverflow.com/questions/69008820/websocket-connection-error-insufficient-resources
@@ -77,12 +77,14 @@ const ChatHeader = styled.div`
   background-color: #0088cc;
   color: white;
   font-size: 20px;
+  border-radius: 10px;
 `;
 
 const ChatBody = styled.div`
   flex: 1;
   overflow-y: auto;
   padding: 15px 20px;
+  border-radius: 20px;
 `;
 
 const ChatInputArea = styled.form`

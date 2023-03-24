@@ -4,7 +4,11 @@ import io from 'socket.io-client';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const socket = io('http://localhost:3001');
+  const socket = io('http://localhost:3001', {
+    pingTimeout: 60000, 
+  });
+
+  // https://stackoverflow.com/questions/69008820/websocket-connection-error-insufficient-resources
 
   useEffect(() => {
     // Subscribe to "message" event
@@ -12,7 +16,8 @@ const Chat = () => {
 
     // Unsubscribe from "message" event when component unmounts
     return () => {
-      socket.off('message', handleMessage);
+      // socket.off('message', handleMessage);
+      socket.disconnect('message', handleMessage);
     };
   }, []);
 

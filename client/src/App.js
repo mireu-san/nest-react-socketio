@@ -10,6 +10,7 @@ const App = () => {
         <Content>
           <div>
             {/* <h1>Test purpose - nestjs and react</h1> */}
+            <p style={{ textAlign: 'center' }}>Hikarigram</p>
             <Chat />
           </div>
         </Content>
@@ -34,9 +35,9 @@ const Background = styled.section`
 const Content = styled.div`
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
+  /* padding: 0px; */
   width: 65vw;
   height: 53vh;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;

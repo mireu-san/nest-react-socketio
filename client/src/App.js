@@ -1,6 +1,7 @@
 import React from 'react';
 import Chat from './Chat';
 import styled from 'styled-components';
+import SidebarWhole from './Sidebar';
 
 const App = () => {
   return (

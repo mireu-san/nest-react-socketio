@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import styled from 'styled-components';
-
+import { useRef } from 'react';
+// import SidebarWhole from './Sidebar';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -10,6 +11,9 @@ const Chat = () => {
   });
 
   // https://stackoverflow.com/questions/69008820/websocket-connection-error-insufficient-resources
+
+  const chatBodyRef = useRef(null);
+
 
   useEffect(() => {
     // Subscribe to "message" event
@@ -33,36 +37,38 @@ const Chat = () => {
   };
 
   return (
+    // <SidebarWhole>
     <ChatWrapper>
-      <Sidebar>  
-        <SidebarHeader>Telegram</SidebarHeader>
-        <SidebarItem active>Chats</SidebarItem>
-        <SidebarItem>Contacts</SidebarItem>
-        <SidebarItem>Settings</SidebarItem>
-      </Sidebar>
-      <ChatContainer>
-        <ChatHeader>
-          <div>Chat</div>
-          <div>Online</div>
-        </ChatHeader>
-        <ChatBody>
-          {messages.map((message, index) => (
-            <ChatMessage key={index}>
-              {message}
-            </ChatMessage>
-          ))}
-        </ChatBody>
-        <ChatInputArea onSubmit={sendMessage}>
-          <ChatInput
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type a message..."
-          />
-          <ChatButton>Send</ChatButton>
-        </ChatInputArea>
-      </ChatContainer>
-    </ChatWrapper>
-  );
+    <Sidebar>  
+      <SidebarHeader>Telegram</SidebarHeader>
+      <SidebarItem active>Chats</SidebarItem>
+      <SidebarItem>Contacts</SidebarItem>
+      <SidebarItem>Settings</SidebarItem>
+    </Sidebar>
+    <ChatContainer>
+      <ChatHeader>
+        <div>Telegram Chat</div>
+        <div>Online</div>
+      </ChatHeader>
+      <ChatBody>
+        {messages.map((message, index) => (
+          <ChatMessage key={index}>
+            {message}
+          </ChatMessage>
+        ))}
+      </ChatBody>
+      <ChatInputArea onSubmit={sendMessage}>
+        <ChatInput
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type a message..."
+        />
+        <ChatButton>Send</ChatButton>
+      </ChatInputArea>
+    </ChatContainer>
+  </ChatWrapper>
+  // </SidebarWhole>
+);
 };
 
 export default Chat;

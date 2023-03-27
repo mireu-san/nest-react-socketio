@@ -2,7 +2,9 @@
     "name": "hikarinogram",
     "version": "1.0",
     "scripts": {
-      "install-all": "cd client && npm install && cd ../nestjs-websocket && npm install"
+      "install-all": "cd client && npm install && cd ../nestjs-websocket && npm install",
+      "client": "cd client && npm start",
+      "server": "cd nestjs-websocket && npm start"
     }
   }
   

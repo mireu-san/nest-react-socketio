@@ -7,6 +7,6 @@ Please run the following command from the root directory.
 Please note: you need to run the client and the server in separate terminals.
 
 # Limitation
-Due to the token security issue in public, this project does not include serverless feature.
+Due to security concerns related to tokens in public environments, this project does not include serverless features.
 
-If you have any question, please let me know by sending DM :)
+If you have any questions, please feel free to send me a direct message to my Linkedin account :)

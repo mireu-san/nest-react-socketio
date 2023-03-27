@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import styled from 'styled-components';
-import Skeleton from './Skeleton';
-// import { useRef } from 'react';
-// import SidebarWhole from './Sidebar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -41,16 +42,22 @@ const Chat = () => {
   return (
     // <SidebarWhole>
     <ChatWrapper>
-    <Sidebar>
+    {/* <Sidebar>
       <SidebarHeader>Telegram</SidebarHeader>
       <SidebarItem active>Chats</SidebarItem>
       <SidebarItem>Contacts</SidebarItem>
       <SidebarItem>Settings</SidebarItem>
-    </Sidebar>
+    </Sidebar> */}
     <ChatContainer>
       <ChatHeader>
-        <div>Telegram Chat</div>
-        <div>Online</div>
+        <div>Nestjs server</div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <FontAwesomeIcon icon={faSearch} style={{ marginRight: '1em' }} />
+          <FontAwesomeIcon icon={faEllipsisH} style={{ marginRight: '1rem' }} />
+          <a href="https://github.com/mireu-san/nest-react-socketio">
+           <FontAwesomeIcon icon={faGithub} style={{ color: 'white' }} />
+          </a>
+        </div>
       </ChatHeader>
       <ChatBody>
         <div>
@@ -83,39 +90,41 @@ const ChatWrapper = styled.div`
   font-family: sans-serif;
 `;
 
-const Sidebar = styled.div`
-  width: 20%;
-  background-color: #0088cc;
-  color: white;
-  display: flex;
-  flex-direction: column;
-`;
+// const Sidebar = styled.div`
+//   width: 20%;
+//   background-color: #0088cc;
+//   color: white;
+//   display: flex;
+//   flex-direction: column;
+// `;
 
-const SidebarHeader = styled.div`
-  padding: 15px;
-  font-size: 24px;
-  font-weight: bold;
-`;
+// const SidebarHeader = styled.div`
+//   padding: 15px;
+//   font-size: 24px;
+//   font-weight: bold;
+// `;
 
-const SidebarItem = styled.div`
-  padding: 15px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  ${(props) => props.active && `
-    background-color: #0077b3;
-    font-weight: bold;
-  `}
+// const SidebarItem = styled.div`
+//   padding: 15px;
+//   font-size: 18px;
+//   cursor: pointer;
+//   transition: background-color 0.2s ease-in-out;
+//   ${(props) => props.active && `
+//     background-color: #0077b3;
+//     font-weight: bold;
+//   `}
 
-  &:hover {
-    background-color: #0077b3;
-  }
-`;
+//   &:hover {
+//     background-color: #0077b3;
+//   }
+// `;
 
 const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin-top: 1rem;
+  margin: 1rem;
 `;
 
 const ChatHeader = styled.div`
@@ -126,7 +135,6 @@ const ChatHeader = styled.div`
   background-color: #0088cc;
   color: white;
   font-size: 20px;
-  /* border-radius: 10px; */
 `;
 
 const ChatBody = styled.div`
@@ -185,11 +193,3 @@ const ChatMessage = styled.div`
   float: right;
   clear: both;
 `;
-
-// const ChatMessage = styled.div`
-//   background-color: #fff;
-//   border-radius: 10px;
-//   margin-bottom: 10px;
-//   padding: 20px;
-//   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-// `;

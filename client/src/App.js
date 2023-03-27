@@ -9,9 +9,24 @@ const App = () => {
       <AppStyle>
         <Content>
           <div>
-            {/* <h1>Test purpose - nestjs and react</h1> */}
-            <p style={{ textAlign: 'center' }}>Hikarigram</p>
+            <p style={{ 
+              textAlign: 'center', 
+              borderBottom: '2px solid black', 
+              marginBottom: 0,
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              fontSize: '1.2em',
+              padding: '0.5em 0',
+              marginTop: '0'
+            }}>
+              Hikarigram
+            </p>
+
             <Chat />
+            <p style={{ textAlign: 'center' }}>This is to demonstrate how nest.js and react.js can (e.g. listen and off) interact each other.</p>
+          <p style={{ textAlign: 'center' }}>&copy;Chesed Kim 2013.</p>
           </div>
         </Content>
       </AppStyle>
@@ -35,9 +50,7 @@ const Background = styled.section`
 const Content = styled.div`
   background-color: white;
   border-radius: 10px;
-  /* padding: 0px; */
   width: 65vw;
-  height: 53vh;
-  /* padding-top: 20px; */
+  /* height: 53vh; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;

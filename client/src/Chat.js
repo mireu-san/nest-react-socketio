@@ -53,11 +53,13 @@ const Chat = () => {
         <div>Online</div>
       </ChatHeader>
       <ChatBody>
-        {messages.map((message, index) => (
-          <ChatMessage key={index}>
-            {message}
-          </ChatMessage>
-        ))}
+        <div>
+          {messages.map((message, index) => (
+            <ChatMessage key={index}>
+              {message}
+            </ChatMessage>
+          ))}
+        </div>
       </ChatBody>
       <ChatInputArea onSubmit={sendMessage}>
         <ChatInput
@@ -128,6 +130,7 @@ const ChatHeader = styled.div`
 `;
 
 const ChatBody = styled.div`
+  display: inline-block;
   flex: 1;
   overflow-y: auto;
   padding: 25px 20px;
@@ -178,7 +181,9 @@ const ChatMessage = styled.div`
   /* margin-left: 10%; */
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  background: linear-gradient(#43cdf6,#0087fe)
+  background: linear-gradient(#43cdf6,#0087fe);
+  float: right;
+  clear: both;
 `;
 
 // const ChatMessage = styled.div`

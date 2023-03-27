@@ -26,7 +26,7 @@ const App = () => {
 
             <Chat />
             <p style={{ textAlign: 'center' }}>This is to demonstrate how nest.js and react.js can (e.g. listen and off) interact each other.</p>
-          <p style={{ textAlign: 'center' }}>&copy;Chesed Kim 2013.</p>
+          <p style={{ textAlign: 'center' }}>&copy;Chesed Kim 2023.</p>
           </div>
         </Content>
       </AppStyle>

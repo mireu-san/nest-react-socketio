@@ -6,6 +6,10 @@ Please run the following command from the root directory.
 
 Please note: you need to run the client and the server in separate terminals.
 
+# Motivation
+I made this project to test out real-chat application feature by using nest.js and react.js simultaneously.
+With the combination of websocket in nest.js and socket.io, I left some possibilities that this log can be recorded by using extra node.js module such as Winston.
+
 # Limitation
 Due to security concerns related to tokens in public environments, this project does not include serverless features.
 

@@ -11,7 +11,7 @@ export class ChatRoomService {
             'room:lobby': {
                 roomId: 'room:lobby',
                 roomName: 'new chat',
-                cheifId: null,
+                chiefId: null,
             },
         };
     }
@@ -27,7 +27,7 @@ export class ChatRoomService {
         // return this.chatRoomList[roomId];
         this.chatRoomList[roomId] = {
             roomId,
-            cheifId: client.id,
+            chiefId: client.id,
             roomName,
         };
         client.data.roomId = roomId;

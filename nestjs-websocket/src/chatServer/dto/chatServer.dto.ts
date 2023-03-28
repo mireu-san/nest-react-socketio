@@ -9,6 +9,6 @@ export class setInitDTO {
 
 export class chatRoomListDTO {
     roomId: string;
-    cheifId: string;
+    chiefId: string;
     roomName: string;
 }

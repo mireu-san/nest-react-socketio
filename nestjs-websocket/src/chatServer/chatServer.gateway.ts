@@ -2,16 +2,15 @@ import {
     SubscribeMessage,
     WebSocketGateway,
     WebSocketServer,
-    WsResponse,
     OnGatewayConnection,
     OnGatewayDisconnect,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { ChatRoomService } from './chatRoom.service';
-import { setInitDTO, chatRoomListDTO } from './dto/chatServer.dto';
-import { Observable, map, from } from 'rxjs';
+import { setInitDTO } from './dto/chatServer.dto';
 
-// port number 5000, origin 3000 to let it access via 3000 port.
+// port 5000 for socketio (listen)
+// port 3000 for incoming connection
 @WebSocketGateway(5000, {
     cors: {
         origin: 'http://localhost:3000',
@@ -45,7 +44,7 @@ export class ChatBackEndGateway
                 this.ChatRoomService.getChatRoomList(),
             );
         }
-        console.log('disonnected', client.id);
+        console.log('disconnected', client.id);
     }
 
     // send message to all users once message send
@@ -63,7 +62,7 @@ export class ChatBackEndGateway
     // initial nickname setup
     @SubscribeMessage('setInit')
     setInit(client: Socket, data: setInitDTO): setInitDTO {
-        // 이미 최초 세팅이 되어있는 경우 패스
+        // if set by user already, then pass.
         if (client.data.isInit) {
             return;
         }

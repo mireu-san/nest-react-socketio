@@ -1,4 +1,4 @@
-import { Socket } from 'socket.io';
+// import { Socket } from 'socket.io'
 export class setInitDTO {
     nickname: string;
     room: {
@@ -7,8 +7,8 @@ export class setInitDTO {
     };
 }
 
-export class chatRoomListDTO {
-    roomId: string;
-    cheifId: string;
-    roomName: string;
-}
+// export class chatRoomListDTO {
+//     roomId: string;
+//     cheifId: string;
+//     roomName: string;
+// }

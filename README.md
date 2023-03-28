@@ -1,6 +1,3 @@
-# Notice
-This repository will be replaced by repository name: chat-socketio-nest
-
 # Prerequisite
 Please run the following command from the root directory.
 - npm run install-all

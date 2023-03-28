@@ -7,7 +7,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" type="text/css" rel="stylesheet">
         <!-- jquery code -->
-        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
         
     </head>
@@ -110,38 +110,22 @@
         });
 
         //create chat room - jquery
-        // $('.createChatRoom').on('click', function(){
-        //     const roomName = prompt('Input a new chat room name');
-        //     if(!roomName){
-        //         return false;
-        //     }
-        //     $('.chat').html('');
-        //     socket.emit('createChatRoom', roomName,  (res) => {
-        //         if(!res) return;
-        //         myInfo.room = res;
-        //         $('.roomName').text(myInfo.room.roomName);
-        //         $('.chat').html('');
-        //     });
-        //     socket.emit('getChatRoomList', null);
-        // })
-        // create chat room
-        const createChatRoomBtn = document.querySelector('.createChatRoom');
-        createChatRoomBtn.addEventListener('click', function() {
+        document.querySelector('.createChatRoom').addEventListener('click', function(){
             const roomName = prompt('Input a new chat room name');
-            if (!roomName) {
-                return false;
-            }
-            const chatEl = document.querySelector('.chat');
-            chatEl.innerHTML = '';
-            socket.emit('createChatRoom', roomName, function(res) {
-                if (!res) return;
-                myInfo.room = res;
-                const roomNameEl = document.querySelector('.roomName');
-                roomNameEl.textContent = myInfo.room.roomName;
-                chatEl.innerHTML = '';
-            });
-            socket.emit('getChatRoomList', null);
+            if(!roomName){
+            return false;
+        }
+        document.querySelector('.chat').innerHTML = '';
+        socket.emit('createChatRoom', roomName, (res) => {
+            if (!res) return;
+            myInfo.room = res;
+            document.querySelector('.roomName').textContent = myInfo.room.roomName;
+            document.querySelector('.chat').innerHTML = '';
         });
+        socket.emit('getChatRoomList', null);
+        })
+
+
 
         //join chat room
         $(document).on('click', '.enterChatRoom', function(){
@@ -156,19 +140,21 @@
         })
 
         // send a message
-        $('.sendMessage').on('click', function(){
-            socket.emit('sendMessage', $('.write_msg').val());
-            $('.write_msg').val('');
-        })
+        document.querySelector('.sendMessage').addEventListener('click', function() {
+            socket.emit('sendMessage', document.querySelector('.write_msg').value);
+            document.querySelector('.write_msg').value = '';
+        });
+
 
         // set nickname
-        $('.setNickname').on('click', function(){
+        document.querySelector('.setNickname').addEventListener('click', function(){
             const nickname = prompt('Input your new nickname');
             if(!nickname){
                 return false;
             }
             socket.emit('setNickname', nickname);
             localStorage.setItem('nickname', nickname);
-        })
+        });
+
     </script>
 </html>

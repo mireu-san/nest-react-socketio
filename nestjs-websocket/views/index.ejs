@@ -70,6 +70,7 @@
             let currentDate = new Date(); // Create a new Date object with the current date and time
             let formattedDate = currentDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, month: 'long', day: 'numeric' });
             if(myInfo.id == id){
+                // note: this is an expression to concatenate HTML elements here. This is ejs.
                 html += '<div class="outgoing_msg">';
                 html += '<div class="sent_msg">';
                 html += '<p>'+message+'</p>';
@@ -82,9 +83,6 @@
                 html += '<div class="received_width_msg">';
                 html += '<p>'+message+'</p>';
                 html += '<span class="time_date"> '+nickname+' | '+formattedDate+'</span>';
-                html += '</div>';
-                html += '</div>';
-                html += '</div>';
             }
             $('.chat').append(html);
             $('.chat').scrollTop($('.chat')[0].scrollHeight);
@@ -96,9 +94,6 @@
                 html += '<div class="chat_people">';
                 html += '<div class="chat_ib">';
                 html += '<h5>'+roomName+'</h5>';
-                html += '</div>';
-                html += '</div>';
-                html += '</div>';
             }
             $('.chatRoomList').html(html);
         });

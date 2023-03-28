@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ChatFrontEndController } from './chatClient.controller';
+import { ChatClientController } from './chatClient.controller';
 
 @Module({
-    controllers: [ChatFrontEndController],
+    controllers: [ChatClientController],
 })
-export class ChatFrontEndModule {}
+export class ChatClientModule {}

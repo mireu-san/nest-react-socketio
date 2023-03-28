@@ -16,7 +16,7 @@ import { setInitDTO } from './dto/chatServer.dto';
         origin: 'http://localhost:3000',
     },
 })
-export class ChatBackEndGateway
+export class ChatServerGateway
     implements OnGatewayConnection, OnGatewayDisconnect
 {
     constructor(private readonly ChatRoomService: ChatRoomService) {}
@@ -25,7 +25,7 @@ export class ChatBackEndGateway
 
     //add to user list once socket connection established
     public handleConnection(client: Socket): void {
-        console.log('connected', client.id);
+        console.log('user connected, ID is:', client.id);
         client.leave(client.id);
         client.data.roomId = `room:lobby`;
         client.join('room:lobby');
@@ -44,7 +44,7 @@ export class ChatBackEndGateway
                 this.ChatRoomService.getChatRoomList(),
             );
         }
-        console.log('disconnected', client.id);
+        console.log('User closed window or disconnected. ID was:', client.id);
     }
 
     // send message to all users once message send

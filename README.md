@@ -1,8 +1,8 @@
 # Prerequisite
-Please run the following command from the root directory.
-- npm run install
-- npm run server
-- open the browser and access to http://localhost:3000
+Please run the following command lines from the root directory in order.
+1. npm run install
+2. npm run server
+3. open the browser and access to http://localhost:3000
 
 # Motivation
 I made this project to test out real-chat application feature by using nest.js and react.js simultaneously.

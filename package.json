@@ -1,0 +1,8 @@
+{
+  "name": "hikarinogram",
+  "version": "1.0",
+  "scripts": {
+    "install": "cd nestjs-websocket && npm install",
+    "server": "cd nestjs-websocket && npm start"
+  }
+}
